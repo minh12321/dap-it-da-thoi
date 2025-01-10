@@ -7,7 +7,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://ngrok.com/r/iep';
+  private apiUrl = 'https://ngrok.com/r/iep/shopbongda';
 
   constructor(private http: HttpClient) { }
   
