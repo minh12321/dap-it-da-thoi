@@ -1,0 +1,41 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { User } from '../user.model';
+
+@Component({
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
+})
+export class AccountComponent {
+  
+  user:User[]=[];
+
+  constructor(private userService: UserService, private router: Router) { }
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+ 
+    this.getUser();
+  }
+  private getUser(){
+    this.userService.getList().subscribe(data=>{
+      this.user=data;
+    });
+
+  }
+
+  updateUser() {
+    
+  }
+  deleteUser(id:number){
+    this.userService.deleteUser(id).subscribe(data=>{
+      console.log(data);
+      this.getUser;
+    });
+  }
+  back(){
+    this.router.navigate(['/']);
+  }
+}
