@@ -1,16 +1,32 @@
-<div class="top">
-    <form action="#" method="post">
-            <input type="search" id="search" name="search" placeholder="Tìm kiếm">
-            <button type="search">tìm</button>
-    </form>
-</div>
+
+<header class="header">
+    <div class="logo">
+      <h1>BEN</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-microphone"></i>
+    </div>
+    <div class="auth-cart">
+      <a (click)="navigateToLogin()" class="auth-link">Đăng nhập</a>/<a (click)="navigateToRegister()" class="auth-link">Đăng ký</a>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
+      
+    </div>
+    <div>
+    <img src="\assets\anh\iconbong3.jpg" alt="Soccer Ball" class="corner-image">
+    </div>
+  </header>
 <div class="menu-bar">
     <ul>
         <li><a href="#">Giày hiệu</a></li>
         <li><a href="#">Giày đinh</a></li>
         <li><a href="#">Găng tay</a></li>
         <li><a href="#">Phụ kiện</a></li>
-        <li><a href="#">Danh mục</a></li>
+        <li><a href="#">Trang</a></li>
+        <li><a href="#" >Danh mục</a></li>
     </ul>
 </div>
 

@@ -7,7 +7,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://861a-116-106-98-151.ngrok-free.app/shopbongda';
+  private apiUrl = 'http://localhost:8080/shopbongda';
 
   constructor(private http: HttpClient) { }
   
