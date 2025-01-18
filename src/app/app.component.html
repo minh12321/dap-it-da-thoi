@@ -1,7 +1,7 @@
 
 <header class="header">
-    <div class="logo">
-      <h1>BEN</h1>
+  <div class="logo">
+      <h1>F**K</h1>
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Search...">
@@ -13,23 +13,25 @@
       <div class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
       </div>
-      
-    </div>
-    <div>
+  </div>
+  <div>
     <img src="\assets\anh\iconbong3.jpg" alt="Soccer Ball" class="corner-image">
-    </div>
-  </header>
-<div class="menu-bar">
+  </div>
+</header>
+  <div class="menu-bar">
     <ul>
-        <li><a href="#">Giày hiệu</a></li>
-        <li><a href="#">Giày đinh</a></li>
-        <li><a href="#">Găng tay</a></li>
-        <li><a href="#">Phụ kiện</a></li>
-        <li><a href="#">Trang</a></li>
-        <li><a href="#" >Danh mục</a></li>
+        <li *ngFor="let item of menuItems" (click)="toggleMenu(item)">
+            <a >
+                <i class=" itemico" [class]="item.icon"></i>
+                <span> {{ item.label }} </span>
+                <span class="toggle-icon">
+                    <i *ngIf="!item.isExpanded" class="fa-solid fa-chevron-right"></i>
+                    <i *ngIf="item.isExpanded" class="fa-solid fa-chevron-down"></i>
+                </span>
+            </a>
+        </li>
     </ul>
 </div>
-
 
 <div class="container">
 <router-outlet></router-outlet>

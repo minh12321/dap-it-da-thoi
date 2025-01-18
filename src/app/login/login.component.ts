@@ -4,6 +4,8 @@ import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+declare var gapi: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +16,9 @@ export class LoginComponent {
   username: string="";
   password: string="";
 
-  constructor(private userService: UserService, private router: Router) { }
+  private googleAuth: any;
+
+  constructor(private userService: UserService, private router: Router,private http: HttpClient) { }
 
   onSubmit(){
     this.login();
@@ -37,4 +41,11 @@ export class LoginComponent {
   home(){
     
   }
+  gg():void{
+    
+  }
+  fb(){
+
+  }
+
 }

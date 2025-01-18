@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders , HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user.model';
+import {environment} from './environments/environment'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8080/shopbongda';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
+  
   
 
   registerUser(params: HttpParams): Observable<User> {
@@ -34,4 +37,5 @@ export class UserService {
   getList():Observable<User[]>{
     return this.http.get<User[]>(`${this.apiUrl}/list`);
   }
+  
 }
