@@ -141,3 +141,61 @@ body {
     width: 65px; 
     height: auto;
   } 
+/* -footer csscss */
+
+
+footer {
+  background: linear-gradient(to right, #FFD366, #FF914D);
+  padding: 20px;
+  color: black;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about, .info, .contact {
+  flex: 1;
+  padding: 10px;
+}
+
+h3 {
+  border-bottom: 2px solid black;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.logo1 {
+  width: 120px;
+  height: 120px;
+  background-color: #FF8C5A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.social-icons a img {
+  width: 40px;
+  margin: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin: 5px 0;
+}
+
+.contact p {
+  margin: 5px 0;
+}

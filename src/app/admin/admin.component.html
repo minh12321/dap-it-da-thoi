@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Quản lý sản phẩm & tài khoản</h2>
+  
+    <!-- Tabs -->
+    <div class="tabs">
+      <button (click)="tab = 'account'" [class.active]="tab === 'account'">Chỉnh sửa tài khoản</button>
+      <button (click)="tab = 'product'" [class.active]="tab === 'product'">Chỉnh sửa sản phẩm</button>
+    </div>
+  
+    <!-- Chỉnh sửa tài khoản -->
+    <div *ngIf="tab === 'account'" class="content">
+      <!-- <h3>Chỉnh sửa tài khoản</h3>
+      <form>
+        <label for="username">Tên tài khoản:</label>
+        <input type="text" id="username" [(ngModel)]="">
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="">
+  
+        <button (click)="">Cập nhật</button>
+      </form> -->
+    </div>
+  
+    <!-- Chỉnh sửa sản phẩm -->
+    <div *ngIf="tab === 'product'" class="content">
+      <h3>Chỉnh sửa sản phẩm</h3>
+      <!-- <form>
+        <label for="productName">Tên sản phẩm:</label>
+        <input type="text" id="productName" [(ngModel)]="product.name">
+  
+        <label for="price">Giá:</label>
+        <input type="number" id="price" [(ngModel)]="product.price">
+  
+        <label for="quantity">Số lượng:</label>
+        <input type="number" id="quantity" [(ngModel)]="product.quantity">
+  
+        <button (click)="updateProduct()">Cập nhật</button>
+      </form> -->
+    </div>
+  </div>
+  
