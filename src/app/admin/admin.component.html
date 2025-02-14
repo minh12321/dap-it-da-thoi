@@ -8,34 +8,14 @@
     </div>
   
     <!-- Chỉnh sửa tài khoản -->
-    <div *ngIf="tab === 'account'" class="content">
-      <!-- <h3>Chỉnh sửa tài khoản</h3>
-      <form>
-        <label for="username">Tên tài khoản:</label>
-        <input type="text" id="username" [(ngModel)]="">
-  
-        <label for="email">Email:</label>
-        <input type="email" id="email" [(ngModel)]="">
-  
-        <button (click)="">Cập nhật</button>
-      </form> -->
+    <div *ngIf="tab === 'account'"  class="content"  >
+      <button (click)="navigateToaccount()">Chỉnh sửa tài khoản</button>
     </div>
   
     <!-- Chỉnh sửa sản phẩm -->
     <div *ngIf="tab === 'product'" class="content">
       <h3>Chỉnh sửa sản phẩm</h3>
-      <!-- <form>
-        <label for="productName">Tên sản phẩm:</label>
-        <input type="text" id="productName" [(ngModel)]="product.name">
-  
-        <label for="price">Giá:</label>
-        <input type="number" id="price" [(ngModel)]="product.price">
-  
-        <label for="quantity">Số lượng:</label>
-        <input type="number" id="quantity" [(ngModel)]="product.quantity">
-  
-        <button (click)="updateProduct()">Cập nhật</button>
-      </form> -->
+      <button (click)="navigateToproduce()">C</button>
     </div>
   </div>
   

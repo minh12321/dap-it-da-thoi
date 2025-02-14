@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
   tab: string = 'account';
+
+  constructor(private router: Router) { }
+  
+    navigateToaccount() {
+      this.router.navigate(['/account']);
+    }
+
+    navigateToproduce() {
+      this.router.navigate(['/suasanpham']);
+    }
 }

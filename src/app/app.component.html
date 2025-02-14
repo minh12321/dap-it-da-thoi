@@ -22,7 +22,7 @@
   <div class="menu-bar">
     <ul>
         <li *ngFor="let item of menuItems" (click)="toggleMenu(item)">
-            <a >
+            <a [routerLink]="item.route">
                 <i class=" itemico" [class]="item.icon"></i>
                 <span> {{ item.label }} </span>
                 <span class="toggle-icon">

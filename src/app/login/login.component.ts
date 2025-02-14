@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
-import { User } from '../user.model';
+import { UserService } from '../../api-sevice/user.service';
+import { User } from '../../api-sevice/user.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 declare var gapi: any;
@@ -20,6 +20,8 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router,private http: HttpClient) { }
 
+  public loginstatus: boolean=false;
+
   onSubmit(){
     this.login();
   }
@@ -31,10 +33,11 @@ export class LoginComponent {
     this.userService.loginUser(params).subscribe({
       next: () => {
         alert('Login successful!');
+        !this.loginstatus;
         this.router.navigate(['/']);
       },
       error: (err) => {
-        alert('Login failed: ' + err.message);
+        alert('Login failed: ' );
       }
     });
   }
