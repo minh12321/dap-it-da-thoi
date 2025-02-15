@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://your-production-api-url.com/shopbongda'
+    apiUrl: 'https://beed-113-178-35-4.ngrok-free.app/shopbongda'
   };
   

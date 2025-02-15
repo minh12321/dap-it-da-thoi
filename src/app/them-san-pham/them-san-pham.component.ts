@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../../api-sevice/san_pham.service';
+import { ProductService } from '../api-sevice/san_pham.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Product } from '../../api-sevice/san_pham.model';
+import { Product } from '../api-sevice/san_pham.model';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-them-san-pham',
@@ -9,48 +10,60 @@ import { Product } from '../../api-sevice/san_pham.model';
   styleUrl: './them-san-pham.component.css'
 })
 export class ThemSanPhamComponent {
-  products: Product[] = [];
+  product: Product[] = [];
   newProduct: Product = new Product();
-  file: File | null = null;
+  selectedFile: File | null = null;
+
+  public apiUrl = environment.apiUrl;
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
-    this.getAllProducts();
-  }
 
-  getAllProducts(): void {
-    this.productService.getAllProducts().subscribe(
-      (data) => {
-        this.products = data;
-      },
-      (error) => {
-        console.error('Error fetching products', error);
-      }
-    );
-  }
-
-  addProduct(): void {
-    if (this.file) {
-      this.productService.addProduct(this.newProduct, this.file).subscribe(
-        (data) => {
-          this.products.push(data); 
-          this.resetForm();
-        },
-        (error) => {
-          console.error('Error adding product', error);
-        }
-      );
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    if (this.selectedFile) {
+      this.uploadImage();
     }
   }
 
-  onFileChange(event: any): void {
-    this.file = event.target.files[0];
+  uploadImage() {
+    if (!this.selectedFile) return;
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    this.productService.uploadImage(formData).subscribe((url: string) => {
+      this.newProduct.hinhAnh = url; 
+    });
   }
 
-  resetForm(): void {
-    this.newProduct = new Product();
-    this.file = null;
+  submitProduct() {
+    this.productService.addProduct(this.newProduct).subscribe(response => {
+      console.log('Sản phẩm đã lưu:', response);
+    });
+
+    
+  }
+
+  ngOnInit(): void {
+    this.getAllProducts(); 
+  }
+
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe(data => {
+      this.product = data;
+    });
+
+  }
+  deleteProduct(product: Product) {
+    if (confirm(`Bạn có chắc muốn xóa sản phẩm "${product.tenSanPham}" không?`)) {
+      this.productService.deleteImage(product.hinhAnh).subscribe(() => {
+        this.productService.deleteProduct(product.maSanPham).subscribe(() => {
+          alert('Sản phẩm đã bị xóa!');
+          this.getAllProducts(); 
+        });
+      });
+    }
   }
   // -----------------------
 
