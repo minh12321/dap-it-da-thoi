@@ -4,9 +4,10 @@ import { UserService } from '../api-sevice/user.service';
 import { User } from '../api-sevice/user.model';
 
 @Component({
-  selector: 'app-account',
-  templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+    selector: 'app-account',
+    templateUrl: './account.component.html',
+    styleUrls: ['./account.component.css'],
+    standalone: false
 })
 export class AccountComponent {
   

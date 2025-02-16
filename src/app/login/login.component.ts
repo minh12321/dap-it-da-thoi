@@ -7,9 +7,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 declare var gapi: any;
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: false
 })
 export class LoginComponent {
   user:User = new User();

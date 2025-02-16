@@ -5,9 +5,10 @@ import { Product } from '../api-sevice/san_pham.model';
 import { environment } from '../environments/environment';
 
 @Component({
-  selector: 'app-them-san-pham',
-  templateUrl: './them-san-pham.component.html',
-  styleUrl: './them-san-pham.component.css'
+    selector: 'app-them-san-pham',
+    templateUrl: './them-san-pham.component.html',
+    styleUrl: './them-san-pham.component.css',
+    standalone: false
 })
 export class ThemSanPhamComponent {
   product: Product[] = [];
