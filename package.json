@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:fb_for_spring": "node dist/fb_for_spring/server/server.mjs"
+    "serve:ssr:fb_for_spring": "node dist/fb_for_spring/server/server.mjs",
+    "preinstall": "chmod +x node_modules/.bin/ng"
   },
   "private": true,
   "dependencies": {
