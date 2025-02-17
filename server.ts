@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import AppServerModule from './src/main.server';
 
-import { render } from '@netlify/angular-runtime/src/common-engine';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -53,18 +52,6 @@ function run(): void {
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
-}
-const commonEngine = new CommonEngine()
-
-export async function netlifyCommonEngineHandler(request: Request, context: any): Promise<Response> {
-  // Example API endpoints can be defined here.
-  // Uncomment and define endpoints as necessary.
-  // const pathname = new URL(request.url).pathname;
-  // if (pathname === '/api/hello') {
-  //   return Response.json({ message: 'Hello from the API' });
-  // }
-
-  return await render(commonEngine)
 }
 
 run();
