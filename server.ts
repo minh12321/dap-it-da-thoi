@@ -1,5 +1,5 @@
 import { CommonEngine } from '@angular/ssr/node'
-import { render } from '@netlify/angular-runtime/common-engine'
+import { render } from '@netlify/angular-runtime/src/common-engine.mjs'
 
 const commonEngine = new CommonEngine()
 
